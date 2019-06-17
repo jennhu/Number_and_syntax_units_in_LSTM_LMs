@@ -1,3 +1,4 @@
 Data/LSTM/activations
 Data/LSTM/models
 Figures
+*.pyc

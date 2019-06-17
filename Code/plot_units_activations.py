@@ -1,5 +1,7 @@
 import os, pickle, argparse
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 plt.rc('font', family='serif')
 
@@ -152,8 +154,6 @@ legend = fig.legend(handles, labels, loc='upper center', ncol=3, fontsize=10)
 if args.no_legend: 
     legend.set_visible(False)
 
-#fig.align_ylabels(axs)
-#fig.align_ylabels(axs)
 fig.align_ylabels(axs)
 fig.align_ylabels(axs)
 
