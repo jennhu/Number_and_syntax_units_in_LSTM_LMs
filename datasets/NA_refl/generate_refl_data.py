@@ -1,6 +1,6 @@
 import pandas as pd
 
-if __name__ == '__main__':
+def save_refl_dataset():
     names = ['text', 'cond', 'result', 'id']
     na_verb_data = pd.read_csv('../NA_tasks/nounpp.txt', delimiter='\t', names=names)
     print(na_verb_data.head())
@@ -31,5 +31,34 @@ if __name__ == '__main__':
     print(df.head())
     out_path = 'refl_nounpp.txt'
     df.to_csv(out_path, sep='\t', header=None, index=False)
+
+def save_refl_stimuli():
+    names = ['text', 'cond', 'result', 'id']
+    dataset = pd.read_csv('refl_nounpp.txt', delimiter='\t', names=names)
+    print(dataset.head())
+
+    stimuli_names = ['text', 'noun1', 'noun2', 'wrong_refl']
+    stimuli = {col: [] for col in stimuli_names}
+
+    ids = dataset['id'].unique()
+    for i in ids:
+        id_rows = dataset[dataset['id'] == i]
+        correct_text = id_rows[id_rows['result'] == 'correct']['text'].values[0]
+        noun1, noun2 = id_rows['cond'].values[0].split('_')
+        wrong_refl = 'themselves' if noun1 == 'singular' else 'itself'
+        stimuli['text'].append(correct_text)
+        stimuli['noun1'].append(noun1)
+        stimuli['noun2'].append(noun2)
+        stimuli['wrong_refl'].append(wrong_refl)
+        
+    df = pd.DataFrame(stimuli)
+    df.insert(0, 'exp', 'refl_nounpp')
+    print(df.head())
+    out_path = '../../Data/Stimuli/refl_nounpp.txt'
+    df.to_csv(out_path, sep='\t', header=None, index=False)
+
+if __name__ == '__main__':
+    save_refl_stimuli()
+    
 
     
