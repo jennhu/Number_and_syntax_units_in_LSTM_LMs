@@ -1,0 +1,25 @@
+discarding /cm/shared/openmind/anaconda/2.5.0/bin from PATH
+prepending /om2/user/jennhu/conda/envs/neural-nlp/bin to PATH
+/om2/user/jennhu/conda/envs/neural-nlp/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+/om2/user/jennhu/conda/envs/neural-nlp/lib/python3.6/site-packages/torch/serialization.py:425: SourceChangeWarning: source code of class 'model.RNNModel' has changed. you can retrieve the original source code by accessing the object's source attribute or set `torch.nn.Module.dump_patches = True` and use the patch tool to revert the changes.
+  warnings.warn(msg, SourceChangeWarning)
+Traceback (most recent call last):
+  File "Code/extract_predictions.py", line 98, in <module>
+    init_out, init_h = feed_sentence(model, hidden, init_sentence.split(" "))
+  File "Code/extract_predictions.py", line 52, in feed_sentence
+    out, h = feed_input(model, h, w)
+  File "Code/extract_predictions.py", line 47, in feed_input
+    out, hidden = model(inp, hidden)
+  File "/om2/user/jennhu/conda/envs/neural-nlp/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/om/user/jennhu/Number_and_syntax_units_in_LSTM_LMs/Code/model.py", line 46, in forward
+    emb = self.drop(self.encoder(input))
+  File "/om2/user/jennhu/conda/envs/neural-nlp/lib/python3.6/site-packages/torch/nn/modules/module.py", line 477, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/om2/user/jennhu/conda/envs/neural-nlp/lib/python3.6/site-packages/torch/nn/modules/sparse.py", line 110, in forward
+    self.norm_type, self.scale_grad_by_freq, self.sparse)
+  File "/om2/user/jennhu/conda/envs/neural-nlp/lib/python3.6/site-packages/torch/nn/functional.py", line 1110, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: Expected object of type torch.LongTensor but found type torch.cuda.LongTensor for argument #3 'index'
+discarding /om2/user/jennhu/conda/envs/neural-nlp/bin from PATH

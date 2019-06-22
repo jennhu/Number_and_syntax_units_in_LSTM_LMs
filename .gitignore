@@ -4,3 +4,4 @@ Figures
 *.pyc
 *__pycache
 .idea
+._*
