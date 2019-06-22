@@ -15,4 +15,4 @@ stimulates	stimulate
 understands	understand
 believes	believe
 says	say
-thinks	think
+thinks think
