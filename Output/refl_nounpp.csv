@@ -1,0 +1,5 @@
+number_1,number_2,full_cond,accuracy,ablated_unit
+singular,singular,singular_singular,1.0,None
+singular,plural,singular_plural,0.9566666666666667,None
+plural,singular,plural_singular,0.9116666666666666,None
+plural,plural,plural_plural,0.9983333333333333,None

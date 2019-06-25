@@ -5,6 +5,8 @@ parser = argparse.ArgumentParser(description='Get accuracy on agreement task for
 parser.add_argument('-ablation-results', required=True, help='Input ablation-results file')
 parser.add_argument('-info', required=True, help='Input meta info file')
 parser.add_argument('-condition', nargs='+', required=True, help='a list of key and their values, e.g., number_1=singular number_2=plural')
+parser.add_argument('-o', default=None, help='File to save condition-based output results. If none specified, simply print')
+parser.add_argument('-unit', default=None, help='(optional) unit that was ablated')
 args = parser.parse_args()
 
 condition_constraints = [c.split('=') for c in args.condition] # list of (key, value) tuples that defines the condition
@@ -26,3 +28,11 @@ if success:
     print('p-difference: %1.5f +- %1.5f' % (np.mean(p_difference), np.std(p_difference)))
 else:
     print('No sentences meet the keys-values in the condition. Check for typos and verify the meta info file include them')
+
+if args.o:
+    with open(args.o, 'a') as f:
+        f.write('{},{},{},{},{}\n'.format(condition_constraints[0][1], 
+                                    condition_constraints[1][1],
+                                    condition_constraints[0][1] + '_' + condition_constraints[1][1],
+                                    np.mean(success),
+                                    args.unit))

@@ -1,0 +1,16 @@
+#!/bin/sh
+#SBATCH --job-name=abl_l1
+#SBATCH --qos=cpl
+#SBATCH --time=7-0    # -- first number is days requested, second number is hours
+#SBATCH -o logs/ablate_refl_l1%j.out
+#SBATCH -e logs/ablate_refl_l1%j.err
+#SBATCH --gres=gpu:titan-x:1  #  -- request the number of gpus.
+#SBATCH -c 1                  #  -- request number of cores
+#SBATCH --mem=8G              #  -- request memory
+#SBATCH --mail-user=jennhu@mit.edu # -- use this to send an automated email when:
+#SBATCH --mail-type=end            # -- your job completes successfully
+#SBATCH --mail-type=fail           # -- or if your job fails
+
+source activate neural-nlp
+./ablation.l1.sh
+source deactivate

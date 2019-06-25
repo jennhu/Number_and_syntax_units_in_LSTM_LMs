@@ -5,3 +5,5 @@ Figures
 *__pycache
 .idea
 ._*
+scripts/logs
+Output/refl_nounpp_ablation

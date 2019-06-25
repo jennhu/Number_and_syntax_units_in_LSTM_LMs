@@ -112,8 +112,8 @@ for unit_group in tqdm(target_units):
 
     output_fn = args.output
     if args.do_ablation: # if ablation then add unit number etc to filename
-        output_fn = output_fn + "_".join(map(str, unit_group)) + '_groupsize_' + args.groupsize + '_seed_' + str(args.seed) # Update output file name
-    output_fn = output_fn + '.abl'
+        output_fn = output_fn + "_".join(map(str, unit_group)) + '_groupsize_' + str(args.groupsize) + '_seed_' + str(args.seed) # Update output file name
+    # output_fn = output_fn + '.abl'
 
     print("\n\n\n")
     print("ablated units: ", units_to_kill_l0.cpu().numpy() + 1, units_to_kill_l1.cpu().numpy() + 651)
@@ -187,11 +187,11 @@ for unit_group in tqdm(target_units):
             'log_p_targets_correct': log_p_targets_correct,
             'log_p_targets_wrong': log_p_targets_wrong,
             'score_on_task': score_on_task,
-            'accuracy_score_on_task': score_on_task,
+            'accuracy_score_on_task': score_on_task / len(sentences),
             'sentences': sentences,
             'num_sentences': len(sentences),
             'nattr': list(gold.loc[:,'nattr']),
-            'verb_pos': list(gold.loc[:, 'verb_pos'])
+            'refl_pos': list(gold.loc[:, 'refl_pos'])
         }
 
         print(output_fn)
@@ -199,12 +199,11 @@ for unit_group in tqdm(target_units):
         print('p_difference: %1.3f +- %1.3f' % (score_on_task_p_difference, score_on_task_p_difference_std))
         # Save to file
         if args.format == 'npz':
-            np.savez(output, **out)
+            np.savez(output_fn, **out)
         elif args.format == 'hdf5':
-            with h5py.File("{}.h5".format(output), "w") as hf:
+            with h5py.File("{}.h5".format(output_fn), "w") as hf:
                 for k,v in out.items():
                     dset = hf.create_dataset(k, data=v)
         elif args.format == 'pkl':
-            with open(output_fn, 'wb') as fout:
+            with open("{}.pkl".format(output_fn), 'wb') as fout:
                 pickle.dump(out, fout, -1)
-
