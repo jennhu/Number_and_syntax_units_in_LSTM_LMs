@@ -1,0 +1,103 @@
+Full condition: singular_singular
+Top 10 units:
+   number_1  number_2          full_cond  accuracy  ablated_unit  \
+0  singular  singular  singular_singular         1           204
+0  singular  singular  singular_singular         1          1029
+0  singular  singular  singular_singular         1           181
+0  singular  singular  singular_singular         1           602
+0  singular  singular  singular_singular         1           879
+0  singular  singular  singular_singular         1           348
+0  singular  singular  singular_singular         1          1234
+0  singular  singular  singular_singular         1           323
+0  singular  singular  singular_singular         1           624
+0  singular  singular  singular_singular         1            10
+
+diff_from_full  abs_diff_from_full
+0               0                   0
+0               0                   0
+0               0                   0
+0               0                   0
+0               0                   0
+0               0                   0
+0               0                   0
+0               0                   0
+0               0                   0
+0               0                   0
+
+Full condition: singular_plural
+Top 10 units:
+   number_1 number_2        full_cond  accuracy  ablated_unit  diff_from_full  \
+1  singular   plural  singular_plural  0.860000           816       -0.096667
+1  singular   plural  singular_plural  0.908333           962       -0.048333
+1  singular   plural  singular_plural  0.998333           933        0.041667
+1  singular   plural  singular_plural  0.920000           773       -0.036667
+1  singular   plural  singular_plural  0.993333          1102        0.036667
+1  singular   plural  singular_plural  0.926667          1075       -0.030000
+1  singular   plural  singular_plural  0.986667          1138        0.030000
+1  singular   plural  singular_plural  0.935000          1171       -0.021667
+1  singular   plural  singular_plural  0.935000           750       -0.021667
+1  singular   plural  singular_plural  0.978333          1261        0.021667
+
+   abs_diff_from_full
+1            0.096667
+1            0.048333
+1            0.041667
+1            0.036667
+1            0.036667
+1            0.030000
+1            0.030000
+1            0.021667
+1            0.021667
+1            0.021667
+
+Full condition: plural_singular
+Top 10 units:
+  number_1  number_2        full_cond  accuracy  ablated_unit  diff_from_full  \
+2   plural  singular  plural_singular  0.538333           933       -0.373333
+2   plural  singular  plural_singular  0.668333           668       -0.243333
+2   plural  singular  plural_singular  0.706667          1136       -0.205000
+2   plural  singular  plural_singular  0.748333           816       -0.163333
+2   plural  singular  plural_singular  0.813333          1261       -0.098333
+2   plural  singular  plural_singular  0.816667          1021       -0.095000
+2   plural  singular  plural_singular  0.826667          1006       -0.085000
+2   plural  singular  plural_singular  0.828333           949       -0.083333
+2   plural  singular  plural_singular  0.831667           922       -0.080000
+2   plural  singular  plural_singular  0.850000           962       -0.061667
+
+   abs_diff_from_full
+2            0.373333
+2            0.243333
+2            0.205000
+2            0.163333
+2            0.098333
+2            0.095000
+2            0.085000
+2            0.083333
+2            0.080000
+2            0.061667
+
+Full condition: plural_plural
+Top 10 units:
+  number_1 number_2      full_cond  accuracy  ablated_unit  diff_from_full  \
+3   plural   plural  plural_plural  0.865000           933       -0.133333
+3   plural   plural  plural_plural  0.968333          1136       -0.030000
+3   plural   plural  plural_plural  0.973333           668       -0.025000
+3   plural   plural  plural_plural  0.980000          1021       -0.018333
+3   plural   plural  plural_plural  0.983333           922       -0.015000
+3   plural   plural  plural_plural  0.985000           949       -0.013333
+3   plural   plural  plural_plural  0.986667          1006       -0.011667
+3   plural   plural  plural_plural  0.988333          1102       -0.010000
+3   plural   plural  plural_plural  0.988333          1261       -0.010000
+3   plural   plural  plural_plural  0.988333           816       -0.010000
+
+   abs_diff_from_full
+3            0.133333
+3            0.030000
+3            0.025000
+3            0.018333
+3            0.015000
+3            0.013333
+3            0.011667
+3            0.010000
+3            0.010000
+3            0.010000

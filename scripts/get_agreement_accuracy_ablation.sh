@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ..
 
-for UNIT in {301..400}; do
+for UNIT in {1001..1300}; do
     PREFIX=refl_nounpp${UNIT}_groupsize_1_seed_1
     ABL_FILE=Output/refl_nounpp_ablation/${PREFIX}.pkl
     ACCURACY_FILE=Output/refl_nounpp_ablation/accuracy/${PREFIX}.csv
