@@ -19,8 +19,8 @@ parser.add_argument('-g', '--graphs', nargs='+', action='append', type=str,
                          'gate should be one of: '
                          'gates.in, gates.forget, gates.out, gates.c_tilde, hidden, cell')
 parser.add_argument('-r', '--remove', type=int, default=0, help='How many words to omit from the end of sentence')
-parser.add_argument('-x', '--xlabels', nargs='+', type=str, help='List with xlabels for all subplors. Must match the number of time points')
-parser.add_argument('-y', '--ylabels', nargs='+', type=str, help='List with ylabels for all subplors. Must match the number of subplots provided by --graphs')
+parser.add_argument('-x', '--xlabels', nargs='+', type=str, help='List with xlabels for all subplots. Must match the number of time points')
+parser.add_argument('-y', '--ylabels', nargs='+', type=str, help='List with ylabels for all subplots. Must match the number of subplots provided by --graphs')
 parser.add_argument('--figwidth', type=int, default=15)
 parser.add_argument('--figheight', type=int, default=15)
 parser.add_argument('--xlabels-size', type=int, default=24)
@@ -29,6 +29,7 @@ parser.add_argument('--yticks-size', type=int, default=16)
 parser.add_argument('--no-legend', action='store_true', default=False, help='If specified, legend will be omitted')
 parser.add_argument('--use-tex', default=False, action='store_true')
 parser.add_argument('--facecolor', default=None)
+parser.add_argument('--title', type=str, default=None)
 args = parser.parse_args()
 
 def get_unit_gate_and_indices_for_current_graph(graph, info, condition):
@@ -156,6 +157,9 @@ if args.no_legend:
 
 fig.align_ylabels(axs)
 fig.align_ylabels(axs)
+
+if args.title:
+    plt.suptitle(args.title)
 
 plt.tight_layout()
 # Save and close figure
